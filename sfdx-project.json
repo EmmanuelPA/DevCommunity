@@ -5,8 +5,8 @@
       "default": true
     }
   ],
-  "name": "DevCommunity",
+  "name": "DevPackage",
   "namespace": "",
   "sfdcLoginUrl": "https://login.salesforce.com",
-  "sourceApiVersion": "52.0"
+  "sourceApiVersion": "54.0"
 }

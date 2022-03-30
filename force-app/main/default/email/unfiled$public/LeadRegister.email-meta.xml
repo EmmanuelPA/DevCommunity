@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>UTF-8</encodingKey>
+    <name>LeadRegister</name>
+    <style>none</style>
+    <subject>Thank you for contact us!</subject>
+    <textOnly>Dear {!Lead.FirstName} {!Lead.LastName} An Agent will assit you soon! 
+
+
+Thank you for reaching out!</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

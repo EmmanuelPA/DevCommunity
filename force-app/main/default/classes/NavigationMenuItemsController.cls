@@ -1,4 +1,3 @@
-
 global with sharing class NavigationMenuItemsController {
     public NavigationMenuItemsController() {
     }

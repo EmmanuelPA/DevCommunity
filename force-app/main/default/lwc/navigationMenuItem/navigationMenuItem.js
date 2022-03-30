@@ -9,12 +9,15 @@ export default class NavigationMenuItem extends NavigationMixin(
 
     @track href = '#';
 
-
+    /**
+     * the PageReference object used by lightning/navigation
+     */
     pageReference;
     closeModal;
     connectedCallback() {
         const { type, target, defaultListViewId } = this.item;
 
+        // get the correct PageReference object for the menu item type
         if (type === 'SalesforceObject') {
             this.pageReference = {
                 type: 'standard__objectPage',
@@ -63,6 +66,7 @@ export default class NavigationMenuItem extends NavigationMixin(
             this.dispatchEvent(ev);                    
     }
     handleClick(evt) {
+        // use the NavigationMixin from lightning/navigation to perform the navigation.
         evt.stopPropagation();
         evt.preventDefault();
         this.handleNavigation();
