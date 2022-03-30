@@ -1,0 +1,111 @@
+<template>
+    <div class="slds-grid slds-gutters slds-align_absolute-center">
+        <div class="slds-col slds-size_4-of-4 ">
+            <div class=" slds-p-around_none slds-m-top_x-small slds-m-bottom_medium slds-m-horizontal_none">
+                <lightning-layout class="slds-align_absolute-center" multiple-rows>
+                    <lightning-layout-item padding="around-small" size="12" small-device-size="12"
+                        medium-device-size="12" large-device-size="6">
+
+                        <div class="container">
+                            <div class="row">
+                                <h1>contact us</h1>
+                            </div>
+                            <div class="row">
+                                <h4 style="text-align:center">We'd love to hear from you!</h4>
+                            </div>
+                            <div class="row input-container">
+
+                                <!--  ----------------------------------------------------------------------  -->
+                                <!--  NOTE: Please add the following <META> element to your page <HEAD>.      -->
+                                <!--  If necessary, please modify the charset parameter to specify the        -->
+                                <!--  character set of your HTML page.                                        -->
+                                <!--  ----------------------------------------------------------------------  -->
+
+
+                                <!--  ----------------------------------------------------------------------  -->
+                                <!--  NOTE: Please add the following <FORM> element to your page.             -->
+                                <!--  ----------------------------------------------------------------------  -->
+
+                                <form action={webtoleadUrl}
+                                    method="POST">
+
+                                    <input type=hidden name="oid" value="00D8c000006fceh">
+                                    <input type=hidden name="retURL"
+                                        value={webPage}>
+
+                                    <!--  ----------------------------------------------------------------------  -->
+                                    <!--  NOTE: These fields are optional debugging elements. Please uncomment    -->
+                                    <!--  these lines if you wish to test in debug mode.                          -->
+                                    <!--  <input type="hidden" name="debug" value=1>                              -->
+                                    <!--  <input type="hidden" name="debugEmail"                                  -->
+                                    <!--  value="emmanuel.pecha@gmail.com">                                       -->
+                                    <!--  ----------------------------------------------------------------------  -->
+                                    <div class="col-md-6 col-sm-12">
+                                        <div class="styled-input">
+                                            <input id="first_name" maxlength="40" name="first_name" size="20"
+                                                type="text" required />
+                                            <label for="first_name">First Name</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-12">
+                                        <div class="styled-input" style="float:right;">
+                                            <input id="last_name" maxlength="40" name="last_name" size="20" type="text"
+                                                required />
+                                            <label for="last_name">Last Name</label>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12">
+                                        <div class="styled-input wide">
+                                            <input id="email" maxlength="80" name="email" size="20" type="text"
+                                                required />
+                                            <label for="email">Email</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xs-12">
+                                        <div class="styled-input wide">
+                                            <input id="company" maxlength="40" name="company" size="20" type="text"
+                                                required />
+                                            <label for="company">Company</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-12">
+                                        <div class="styled-input">
+                                            <input id="city" maxlength="40" name="city" size="20" type="text"
+                                                required />
+                                            <label for="city">City</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-12">
+                                        <div class="styled-input" style="float:right;">
+                                            <input id="state" maxlength="20" name="state" size="20" type="text"
+                                                required />
+                                            <label for="state">State/Province</label>
+
+                                        </div>
+                                    </div>
+                                    <label for="lead_source" hidden>Lead Source</label><select id="lead_source"
+                                        name="lead_source" hidden>
+                                        <option value="Web">Web</option>
+                                        <option value="Phone Inquiry">Phone Inquiry</option>
+                                        <option value="Partner Referral">Partner Referral</option>
+                                        <option value="Purchased List">Purchased List</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                    <div class="col-xs-12">
+                                        <input class="submit-btn" type="submit" name="submit">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </lightning-layout-item>
+                </lightning-layout>
+            </div>
+
+        </div>
+
+    </div>
+
+
+</template>

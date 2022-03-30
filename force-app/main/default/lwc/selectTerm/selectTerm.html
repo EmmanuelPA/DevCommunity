@@ -1,0 +1,58 @@
+<template>
+    <div class="slds-grid slds-gutters slds-align_absolute-center">
+
+        <div class="searchBanner slds-p-around_none slds-m-top_x-small slds-m-bottom_medium slds-m-horizontal_none">
+            <lightning-layout class="slds-align_absolute-center" multiple-rows>
+                <lightning-layout-item class="slds-align_absolute-center" padding="around-small" size="12" small-device-size="12" medium-device-size="12"
+                    large-device-size="2">
+                    <template if:true={models}>
+
+                        <lightning-combobox class="" name="Model" label="Model" value={value} options={options}
+                            onchange={handleChange} required="true" style="color:white;">
+                        </lightning-combobox>
+                    </template>
+                </lightning-layout-item>
+                <lightning-layout-item class="slds-align_absolute-center" padding="around-small" size="12" small-device-size="12" medium-device-size="12"
+                    large-device-size="2">
+                    <lightning-input type="currency" label="Amount" value={totalCost} required="true" read-only="true"></lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item class="slds-align_absolute-center" padding="around-small" size="12" small-device-size="12" medium-device-size="12"
+                    large-device-size="2">
+
+                    <lightning-input type="text" label="Down Payment" value={downP} onkeyup={changeModel} required="true"></lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item class="slds-align_absolute-center" padding="around-small" size="12" small-device-size="12" medium-device-size="12"
+                    large-device-size="2">
+                    <lightning-combobox class="" name="Term" label="Term" value={termSelected} options={termOptions}
+                    onchange={handleTerm} style="color:white; " required="true">
+                </lightning-combobox>
+                </lightning-layout-item>
+                <lightning-layout-item class="slds-align_absolute-center" padding="around-small" size="12" small-device-size="6" medium-device-size="6"
+                    large-device-size="2">
+                    <button class="slds-button slds-button_neutral btn-search slds-align_absolute-center" name="Search"
+                        onclick={handleOnClick}>Calculate
+                    </button>
+                </lightning-layout-item>
+                <lightning-layout-item padding="around-small" size="12" small-device-size="12" medium-device-size="12"
+                    large-device-size="12">
+                    <template if:true={errorCheck}>
+                        <div class="error slds-var-p-around_x-small slds-var-p-top_small slds-align_absolute-center" role="alert">
+                            <span>Fill in the required fields</span>
+                        </div>
+                    </template>
+                    <template if:false={errorCheck}>
+                        <div class="slds-align_absolute-center">
+
+                            <c-simulator-table total-amount={totalCost} term={termSelected} down-payment={downP}></c-simulator-table>
+                        </div>
+                    </template>
+                    
+                </lightning-layout-item>
+            </lightning-layout>
+
+        </div>
+
+
+
+    </div>
+</template>

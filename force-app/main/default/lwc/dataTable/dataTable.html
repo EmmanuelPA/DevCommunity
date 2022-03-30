@@ -1,0 +1,98 @@
+<template>
+    <template if:true={errorCheck}>
+        <div class="error slds-var-p-around_x-small slds-var-p-top_small slds-align_absolute-center" role="alert">
+            <span>{errorMessage}</span>
+        </div>
+    </template>
+    <template if:false={guestUser}>
+
+        <div class="new-product slds-var-p-around_x-small slds-var-p-top_small slds-align_absolute-center">
+            <lightning-button class="slds-align_absolute-center" variant="brand" label="New Product"
+                onclick={getButtonData}>
+            </lightning-button>
+        </div>
+
+    </template>
+    <table class="slds-table slds-table_cell-buffer slds-table_bordered"
+        aria-labelledby="element-with-table-label other-element-with-table-label">
+        <thead>
+            <tr class="slds-line-height_reset">
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Model">Model</div>
+                </th>
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Brand">Brand</div>
+                </th>
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Image">Image</div>
+                </th>
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Color">Color</div>
+                </th>
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Price">Price</div>
+                </th>
+                <template if:false={guestUser}>
+                    <th class="" scope="col">
+                        <div class="slds-truncate">Active</div>
+                    </th>
+                </template>
+            </tr>
+        </thead>
+        <tbody>
+            <template if:true={tableInfo}>
+                <template for:each={tableInfo} for:item="r">
+                    <tr class="slds-hint-parent" key={r.Id}>
+                        <th scope="row">
+                            <div class="slds-truncate">
+                                {r.Name}
+                            </div>
+                        </th>
+                        <td>
+                            <div class="slds-truncate">{r.Brand__c}</div>
+                        </td>
+                        <td>
+                            <div class="slds-truncate" title="Image">
+                                <img src={r.ContentId__c} alt="" class="img-size">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="slds-truncate">{r.Color__c}</div>
+                        </td>
+                        <td>
+                            <div class="slds-truncate">$<lightning-formatted-number class="formattedField"
+                                    value={r.Price__c} minimum-significant-digits="5">
+                                </lightning-formatted-number>
+                            </div>
+                        </td>
+                        <template if:false={guestUser}>
+                            <td>
+                                <div class="slds-truncate">
+                                    <lightning-input type="checkbox" checked={r.Has_Promotion__c}> </lightning-input>
+                                </div>
+                            </td>
+                        </template>
+                        <template if:false={guestUser}>
+                            <td>
+                                <div class="slds-truncate slds-align_absolute-center">
+                                    <lightning-button class="slds-align_absolute-center" variant="brand" label="Change Status" value={r.Id}
+                                        onclick={changePromo}>
+                                    </lightning-button>
+                                    <lightning-button class="slds-align_absolute-center" value={r.Id} variant="brand"
+                                        label="Edit" onclick={openUpdateModal}>
+                                    </lightning-button>
+                                </div>
+                            </td>
+                        </template>
+                    </tr>
+                </template>
+
+            </template>
+        </tbody>
+    </table>
+    <c-modal-l-w-c chosen-record={chosenRecord} pick={pickVal} colors={colors} onrefreshlwc={refreshView}>
+    </c-modal-l-w-c>
+    <c-update-modal chosen-record={chosenRecord} pick={pickVal} colors={colors} onrefreshlwc={refreshView}>
+    </c-update-modal>
+
+</template>
