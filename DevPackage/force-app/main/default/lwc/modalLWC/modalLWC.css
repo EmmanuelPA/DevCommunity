@@ -1,0 +1,14 @@
+.error {
+
+    text-align: center;
+    word-break: break-word;
+    max-width: 20rem;
+    color: #ff9e9e;
+}
+.success {
+
+    text-align: center;
+    word-break: break-word;
+    max-width: 20rem;
+    color: #5cb85c;
+}
