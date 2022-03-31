@@ -11,6 +11,7 @@
 		<members>carouselController</members>
 		<members>carouselControllerTest</members>
 		<members>productCreationHandler</members>
+		<members>productCreationHandlerTest</members>
 		<members>tableController</members>
 		<members>tableControllerTest</members>
 		<name>ApexClass</name>

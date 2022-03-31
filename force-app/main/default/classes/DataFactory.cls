@@ -70,4 +70,17 @@
         insert c;
         return c.Id;
     }
+
+    public static Product2 createOneProduct(){
+        Product2 prod = new Product2();
+            prod.Name = 'FT-2';
+            prod.Brand__c = 'BMW';
+            prod.Price__c = 10000;
+            prod.Color__c = 'White';
+            prod.Car_Type__c = 'Car';
+            prod.Has_Promotion__c = TRUE;
+        insert prod;
+        return prod;
+    }
+
 }
