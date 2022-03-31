@@ -3,6 +3,7 @@
 	<types>
 		<members>CommunityAuthController</members>
 		<members>ContentVersionTriggerHandler</members>
+		<members>DataFactory</members>
 		<members>FileUploaderClass</members>
 		<members>NavigationLinkSetPickList</members>
 		<members>NavigationMenuItemsController</members>
