@@ -3,26 +3,18 @@ public with sharing class carouselControllerTest {
 
     @isTest
     static void methodName(){
-        Product2 prod = new Product2();
-        prod.Name = 'FT-1';
-        prod.Brand__c = 'BMW';
-        prod.Has_Promotion__c = TRUE;
-        insert prod;
         Test.startTest();
+        List<Product2> prod = DataFactory.getAllCars(10);
         List<Product2> prods = carouselController.getProductList();
         Test.stopTest();
-        System.assertEquals(prod.Name, prods.get(0).Name);
+        System.assertEquals(prod.get(0).Name, prods.get(0).Name);
         
     }
     @IsTest
     static void errorTest(){
-        Product2 prod = new Product2();
-        prod.Name = 'FT-1';
-        prod.Brand__c = 'BMW';
-        //prod.Has_Promotion__c = TRUE;
-        insert prod;
-        test.startTest();
         
+        test.startTest();
+            DataFactory.getNoPromoCars(10);
             try{
                 List<Product2> prods = carouselController.getProductList();
             } catch (Exception ex) {
