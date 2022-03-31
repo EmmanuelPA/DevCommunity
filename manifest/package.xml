@@ -7,6 +7,7 @@
 		<members>NavigationLinkSetPickList</members>
 		<members>NavigationMenuItemsController</members>
 		<members>carouselController</members>
+		<members>carouselControllerTest</members>
 		<members>productCreationHandler</members>
 		<members>tableController</members>
 		<name>ApexClass</name>
