@@ -28,4 +28,46 @@
         insert listOfProducts;
         return listOfProducts;
     }
+
+    public static user createPartnerUser(){  
+        Id setAccountId = createAccount();
+        Id contactIds = createContact(setAccountId);
+        
+
+        Profile p = [SELECT Id FROM Profile WHERE Name = 'Partner User' LIMIT 1];
+
+        user u = New User(
+            UserName = 'test'  + math.random() +  '@emma.com',
+            FirstName = 'Test-First',
+            LastName = 'Test-Last',
+            Alias = 'test',
+            email = 'test' + math.random() + '@test.com',
+            CommunityNickName = string.valueOf(math.random()).substring(0,6),
+            ProfileID = p.id,
+            TimeZoneSidKey = 'America/New_York', 
+            LocaleSidKey = 'en_US', 
+            EmailEncodingKey = 'UTF-8', 
+            LanguageLocaleKey = 'en_US',
+            ContactID = contactIds
+
+            );
+
+            
+            insert u;
+            system.debug('User = ' + u);
+            return u;
+
+
+    }
+    private static Id createAccount(){
+        Account acc = new Account();
+        acc.Name = 'Community Test';
+        insert acc;
+        return acc.Id;
+    }
+    private static Id createContact(Id accountIds){
+        Contact c = New Contact(LastName = 'Test', AccountID = accountIds);
+        insert c;
+        return c.Id;
+    }
 }
